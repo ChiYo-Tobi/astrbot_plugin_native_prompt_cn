@@ -1,0 +1,249 @@
+{
+  "astr_main_agent": {
+    "_apply_workspace_extra_prompt": {
+      "sha256": "2df43ebc8be01be00a7eaef7936a7a7e7d0492e4809dfa7d5fc499b543846978",
+      "sites": {
+        "105": [
+          "workspace_extra_source",
+          "joined",
+          {
+            "path": "extra_prompt_path",
+            "text": "extra_prompt"
+          }
+        ],
+        "27": [
+          "workspace_extra_header",
+          "header",
+          {}
+        ]
+      }
+    },
+    "_build_local_mode_prompt": {
+      "sha256": "3c9fa638e15e5afd20bd6e7921d88803aaee8fc8524d964ed7c5b3c4e2965d7c",
+      "sites": {
+        "21": [
+          "shell_posix",
+          "constant",
+          {}
+        ],
+        "37": [
+          "shell_pwsh",
+          "constant",
+          {}
+        ],
+        "39": [
+          "shell_win",
+          "constant",
+          {}
+        ],
+        "11": [
+          "local",
+          "joined",
+          {
+            "os": "system_name",
+            "shell": "shell_hint"
+          }
+        ]
+      }
+    },
+    "_ensure_persona_and_skills": {
+      "sha256": "ee516b451dc69eef436927f1d5fb7b817f1a05c8839be8bf12fcf2cd60dfa0dc",
+      "sites": {
+        "106": [
+          "chatui_genui",
+          "name",
+          {}
+        ],
+        "256": [
+          "persona_heading",
+          "heading",
+          {}
+        ],
+        "266": [
+          "chatui_persona",
+          "name",
+          {}
+        ],
+        "498": [
+          "skills_no_runtime",
+          "constant",
+          {}
+        ]
+      }
+    },
+    "_handle_webchat": {
+      "sha256": "9e64f119bf5113606692c6e06684faf683ff87b09650da3c6b33ae03823e8962",
+      "sites": {
+        "131": [
+          "chatui_title",
+          "constant",
+          {}
+        ]
+      }
+    },
+    "_apply_llm_safety_mode": {
+      "sha256": "5605548dfb320ae48dbcd0f8ab93b46814702f93d397bcc03a6d3de6501b3dbb",
+      "sites": {
+        "31": [
+          "safety",
+          "name",
+          {}
+        ]
+      }
+    },
+    "_apply_sandbox_tools": {
+      "sha256": "e3b658e2df1343027ad41f4cbddc19890d3b9a603ec5ab860b1630201bc17d6d",
+      "sites": {
+        "124": [
+          "neo_path",
+          "constant",
+          {}
+        ],
+        "127": [
+          "neo_skills",
+          "constant",
+          {}
+        ],
+        "156": [
+          "cua",
+          "constant",
+          {}
+        ],
+        "289": [
+          "sandbox",
+          "name",
+          {}
+        ]
+      }
+    },
+    "_apply_web_search_citation_prompt": {
+      "sha256": "4d48ac81fec483fc445730faba971e03c94c715c8ba0ad0139061080097c0932",
+      "sites": {
+        "31": [
+          "web_citation",
+          "name",
+          {}
+        ],
+        "55": [
+          "web_citation",
+          "name",
+          {}
+        ]
+      }
+    },
+    "build_main_agent": {
+      "sha256": "63bccf6afc52ec557d531317db234e245eb6b6fa29dc90b6e80d600363d0f3f9",
+      "sites": {
+        "878": [
+          "local_network",
+          "name",
+          {}
+        ],
+        "1125": [
+          "local_network",
+          "name",
+          {}
+        ],
+        "669": [
+          "tools_full",
+          "name",
+          {}
+        ],
+        "670": [
+          "tools_progressive",
+          "name",
+          {}
+        ],
+        "678": [
+          "workspace",
+          "joined",
+          {
+            "workspace": "workspace_root"
+          }
+        ],
+        "970": [
+          "live",
+          "name",
+          {}
+        ]
+      }
+    }
+  },
+  "skills.skill_manager": {
+    "build_skills_prompt": {
+      "sha256": "a416c2ccf7ac0ceb9525e66b7264498cb4a6f5a4a4c43aaf73944e125b1dfe4d",
+      "sites": {
+        "91": [
+          "skill_no_desc",
+          "constant",
+          {}
+        ],
+        "149": [
+          "skill_read_more",
+          "constant",
+          {}
+        ],
+        "111": [
+          "skill_row",
+          "joined",
+          {
+            "name": "display_name",
+            "description": "description",
+            "path": "rendered_path"
+          }
+        ],
+        "34": [
+          "skills",
+          "joined",
+          {
+            "skills": "skills_block",
+            "example_command": "example_command"
+          }
+        ]
+      }
+    }
+  },
+  "star.context": {
+    "Context.tool_loop_agent": {
+      "sha256": "46b52a892a5a6949573e2e92d1f044ff2185411c47a8770bfc20c3e9b85b4194",
+      "sites": {
+        "368": [
+          "local_network",
+          "name",
+          {}
+        ],
+        "450": [
+          "local_network",
+          "name",
+          {}
+        ]
+      }
+    }
+  },
+  "cron.manager": {
+    "CronJobManager._woke_main_agent": {
+      "sha256": "cc050e66baeef51886e492a1bf722e143149a2fde3603d7afd5c93cd9659dd40",
+      "sites": {
+        "122": [
+          "cron",
+          "name",
+          {}
+        ]
+      }
+    }
+  },
+  "astr_agent_tool_exec": {
+    "FunctionToolExecutor._wake_main_agent_for_background_result": {
+      "sha256": "3b192e52bb4230deff709dc85cc25e7a3dbb2de3dd9e1b0c96890b3b260aaccd",
+      "sites": {
+        "99": [
+          "background",
+          "background",
+          {
+            "background_task_result": "bg"
+          }
+        ]
+      }
+    }
+  }
+}

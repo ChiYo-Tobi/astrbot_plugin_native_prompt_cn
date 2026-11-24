@@ -1,0 +1,5 @@
+name: astrbot_plugin_native_prompt_cn
+display_name: AstrBot 原生提示词定制
+author: qyhg
+version: v0.2.0
+desc: 在原生组装点定制系统提示词，默认同义中文，不改写其他插件内容。
