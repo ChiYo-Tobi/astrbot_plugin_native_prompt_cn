@@ -34,7 +34,15 @@ def functions(tree):
 
 
 def fingerprint(node):
-    return hashlib.sha256(ast.dump(node, include_attributes=False).encode()).hexdigest()
+    # Python 3.13 added ast.dump(show_empty=...), defaulting to False, which drops
+    # empty lists and None fields from the dump. Without pinning it to True the
+    # hashes differ from the 3.12-era manifests on 3.13+ and every assembly point
+    # is reported as changed. Older interpreters have no such parameter.
+    try:
+        text = ast.dump(node, include_attributes=False, show_empty=True)
+    except TypeError:
+        text = ast.dump(node, include_attributes=False)
+    return hashlib.sha256(text.encode()).hexdigest()
 
 
 def code_objects(code):
